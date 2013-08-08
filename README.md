@@ -28,7 +28,18 @@ Having an idea of what we need to draw, we will evaluate different libraries for
 
 Project will take some metrics as data, but will be more focused on the drawing part, and NOT in how to generate that data. Since the idea is to take different metrics, data will be randomly generated. We are not evaluating a specific scenario, just showing ways to drawing the Polymetric View.
 
+### Instalation
+
++ `npm install bower -g`
++ `bower install`
+
 ## What's done so far
+
+# 08/08/2013 - v0.0.1
+
++ Added bower for dependency install
++ Added requirejs, underscore, d3, d3.chart as dependencies
++ Generated folder and file structure
 
 # 04/08/2013
 

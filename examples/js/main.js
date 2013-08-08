@@ -8,10 +8,12 @@ Proyect will draw a Polymetric View
 require.config({
 	baseUrl : '../',
 	paths : {
+
 		/** Libraries */
 		'd3'						:			'vendor/d3/d3',
 		'd3.chart'			:			'vendor/d3.chart/d3.chart',
 		'underscore'		:			'vendor/underscore/underscore'
+		
 	},
 	shim : {
 		'd3' : {
