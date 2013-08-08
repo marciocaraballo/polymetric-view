@@ -12,8 +12,14 @@ require.config({
 		/** Libraries */
 		'd3'						:			'vendor/d3/d3',
 		'd3.chart'			:			'vendor/d3.chart/d3.chart',
-		'underscore'		:			'vendor/underscore/underscore'
+		'underscore'		:			'vendor/underscore/underscore',
 
+		/** Components */
+		'line'					:			'src/components/line',
+		'rectangle'			:			'src/components/rectangle',
+
+		/** Composition */
+		'polymetric'		:			'src/composition/polymetric'
 	},
 	shim : {
 		'd3' : {
@@ -31,7 +37,17 @@ require.config({
 
 requirejs(['d3','underscore','d3.chart'],
 function (d3, _){
-	console.log('Lets get this started!');
 
-	var root = d3.select('#root');
+	/** 
+	Chart will be added to the div root
+	*/
+	var root = d3.select('#root'),
+			height = (parseInt(root.style('height'), 10) || 200),
+      width  = (parseInt(root.style('width'), 10) || 200);
+
+	/** Svg element for chart drawing */
+	var svg = root.append('svg')
+								.attr('width', width)
+								.attr('height', height);
+
 });
