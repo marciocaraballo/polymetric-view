@@ -15,6 +15,7 @@ require.config({
 		'underscore'		:			'vendor/underscore/underscore',
 
 		/** Components */
+		'base'					:			'src/components/base',
 		'line'					:			'src/components/line',
 		'rectangle'			:			'src/components/rectangle',
 
@@ -35,7 +36,7 @@ require.config({
 	}
 });
 
-requirejs(['d3','underscore','d3.chart'],
+requirejs(['d3.chart','underscore'],
 function (d3, _){
 
 	/** 
