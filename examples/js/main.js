@@ -51,4 +51,15 @@ function (d3, _){
 								.attr('width', width)
 								.attr('height', height);
 
+	/** Data conventions for data drawing */
+
+	var data = {
+		nodes : [
+			{id : '1', x : 200, y : 200, height : 10, width : 20, color : 'gray'},
+			{id : '2', x : 100, y : 100, height : 20, width : 50, color : 'lightgray'}
+		],
+		links : [
+			{source : '1', destination : '2'}
+		]
+	};
 });

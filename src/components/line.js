@@ -3,8 +3,7 @@ Line component. Draws a line between two points.
 
 @class Line
 @constructor
-@requires d3,
-          d3.chart,
+@requires d3.chart,
           base
 
 @author "Marcio Caraballo <marcio.caraballososa@gmail.com>"

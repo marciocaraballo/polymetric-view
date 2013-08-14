@@ -38,19 +38,34 @@ Represents five metrics : position (x,y), width, height and color.
       Options for the rectangle layer
       */
       var options = {
+        /**
+        Join between the data to visualize and the 
+        svg:rect elements.
+        */
         dataBind : function(data){
-          
+          return this.selectAll('rect').data(data);
         },
+        /**
+        Appending new elements. They receive the new data
+        elements defined.
+        */
         insert : function(){
           return this.append('rect');
         },
         events : {
-          'enter' : function(){
-
+          /**
+          For data entering and update
+          */
+          'merge' : function(){
+            return this.attr('x', function(d){return d.x;})
+                       .attr('y', function(d){return d.y;})
+                       .attr('height', function(d){return d.height;})
+                       .attr('width', function(d){return d.width;})
+                       .attr('class', function(d){return d.colorClass;});
           },
-          'update' : function(){
-
-          },
+          /** 
+          Removes elements that will no longer be used
+          */
           'exit' : function(){
             return this.remove();
           }
