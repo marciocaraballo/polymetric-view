@@ -2,3 +2,29 @@
 	width : 400px;
 	height : 400px;
 }
+
+.white {
+	fill : white;
+}
+
+.lightgray {
+	fill : lightgray;
+}
+
+.gray {
+	fill : gray;
+}
+
+.black {
+	fill : black;
+}
+
+line {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+ 
+circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}

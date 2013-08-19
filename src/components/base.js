@@ -46,6 +46,19 @@ Defines common functionality for the chart parts.
 		height : function(newHeight){
 			this.base.attr('height', newHeight);
 			return this;
+		},
+		/**
+		Scaling for element along x-y axis
+
+		@method
+		@param {Object} xScale d3.scale
+		@param {Object} yScale d3.scale
+		@chainable
+		*/
+		setScales : function(xScale, yScale){
+			this.xScale = xScale;
+			this.yScale = yScale;
+			return this;
 		}
 	});
 }));

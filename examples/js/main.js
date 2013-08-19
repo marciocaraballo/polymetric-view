@@ -36,7 +36,7 @@ require.config({
 	}
 });
 
-requirejs(['d3.chart','underscore'],
+requirejs(['d3.chart','underscore', 'polymetric'],
 function (d3, _){
 
 	/** 
@@ -49,17 +49,40 @@ function (d3, _){
 	/** Svg element for chart drawing */
 	var svg = root.append('svg')
 								.attr('width', width)
-								.attr('height', height);
+								.attr('height', height)
+								.append('g');
 
 	/** Data conventions for data drawing */
-
 	var data = {
 		nodes : [
-			{id : '1', x : 200, y : 200, height : 10, width : 20, color : 'gray'},
-			{id : '2', x : 100, y : 100, height : 20, width : 50, color : 'lightgray'}
+			{id : 0, x : 350, y :  50, height :  10, width :  20, color : 'gray'},
+			{id : 1, x : 100, y : 150, height :  20, width :  50, color : 'lightgray'},
+			{id : 2, x : 200, y : 150, height :  70, width :  20, color : 'lightgray'},
+			{id : 3, x : 300, y : 150, height :  30, width :  80, color : 'gray'},
+			{id : 4, x : 500, y : 150, height : 100, width :  50, color : 'gray'},
+			{id : 5, x :  50, y : 400, height :  10, width : 100, color : 'black'},
+			{id : 6, x : 200, y : 400, height : 200, width :  20, color : 'black'},
+			{id : 7, x : 350, y : 400, height :  50, width :  80, color : 'lightgray'},
+			{id : 8, x : 500, y : 400, height : 100, width : 100, color : 'lightgray'},
+			{id : 9, x : 650, y : 400, height :  77, width :  33, color : 'black'}
 		],
 		links : [
-			{source : '1', destination : '2'}
+			{source : 0, target :  1},
+			{source : 0, target :  2},
+			{source : 0, target :  3},
+			{source : 0, target :  4},
+			{source : 1, target :  5},
+			{source : 2, target :  6},
+			{source : 3, target :  7},
+			{source : 3, target :  8},
+			{source : 3, target :  9}
 		]
 	};
+
+	/** View creation */
+	var chart = svg.chart('PolymetricView')
+								.height(height)
+								.width(width);
+
+			chart.draw(data);
 });

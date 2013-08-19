@@ -15,7 +15,6 @@ Represents five metrics : position (x,y), width, height and color.
   if (typeof define === 'function' && define.amd) {
     /** AMD */
     define([
-      'd3',
       'd3.chart',
       'base'
       ],
@@ -27,7 +26,7 @@ Represents five metrics : position (x,y), width, height and color.
   }
   else {
     /** Browser globals */
-    return factory(d3);
+    factory(d3);
   }
 }(this, function (d3) {
 
@@ -57,11 +56,16 @@ Represents five metrics : position (x,y), width, height and color.
           For data entering and update
           */
           'merge' : function(){
-            return this.attr('x', function(d){return d.x;})
-                       .attr('y', function(d){return d.y;})
-                       .attr('height', function(d){return d.height;})
-                       .attr('width', function(d){return d.width;})
-                       .attr('class', function(d){return d.colorClass;});
+
+            /** Reference to the outter chart */
+            var chart = this.chart();
+
+            return this.attr('id', function(d){return d.id;})
+                       .attr('x', function(d){return chart.xScale(d.x);})
+                       .attr('y', function(d){return chart.yScale(d.y);})
+                       .attr('height', function(d){return chart.yScale(d.height);})
+                       .attr('width', function(d){return chart.xScale(d.width);})
+                       .attr('class', function(d){return d.color;});
           },
           /** 
           Removes elements that will no longer be used
@@ -73,7 +77,18 @@ Represents five metrics : position (x,y), width, height and color.
       };
 
       /** Layer creation  */
-      this.layer('rects', this.base.append('g'));
+      this.layer('rects', this.base.append('g'), options);
+    },
+    /**
+    Defined in order to get only the nodes for the 
+    rectangle drawing.
+
+    @method
+    @param {Object} data Nodes and links data
+    @return {Object} data nodes
+    */
+    transform : function(data){
+      return data.nodes;
     }
   });
 }));
