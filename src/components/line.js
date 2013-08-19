@@ -4,6 +4,7 @@ Line component. Draws a line between two points.
 @class Line
 @constructor
 @requires d3.chart,
+          underscore,
           base
 
 @author "Marcio Caraballo <marcio.caraballososa@gmail.com>"
@@ -41,8 +42,6 @@ Line component. Draws a line between two points.
       /** Options for lines layer */
       var options = {
         dataBind : function(d){
-
-          console.log(d);
 
           return this.selectAll('line').data(d);
         },

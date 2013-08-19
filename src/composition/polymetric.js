@@ -4,7 +4,13 @@ Metrics are interpreted as the rectangles height,
 width, position (x,y) and color.
 
 @class PolymetricView
-@
+@constructor
+@requires d3.chart,
+          underscore,
+          line,
+          rectangle
+
+@author "Marcio Caraballo marcio.caraballososa@gmail.com"
 */
 (function(root, factory) {
   /** Setting up AMD support*/
@@ -41,7 +47,8 @@ width, position (x,y) and color.
     initialize : function(args){
 
       /**
-      Defines two mixins, to compose the view
+      Defines two mixins, to compose the view : one for the links, 
+      other for the rectangle nodes.
       */
       this.lines = this.mixin('Line', this.base.append('g'));
       this.rectangles = this.mixin('Rectangle', this.base.append('g'));
@@ -50,7 +57,11 @@ width, position (x,y) and color.
     Data transformation
 
     Scales are created in order to map element to the
-    svg.
+    svg. 
+
+    For scaling, maximun values for x and y positions must be considered,
+    and also for height / width, so that we can calculate how the rectangles
+    will expand and nothing will be left out of the svg.
 
     @method
     @param {Object} data Nodes / Links data
@@ -77,9 +88,11 @@ width, position (x,y) and color.
         maxWidth  = Math.max(maxWidth, element.width);
       });
 
+      /** Defines scales possible values */
       xScale.domain([0, xMax + maxWidth]);
       yScale.domain([0, yMax + maxHeight]);
 
+      /** Propagates to mixins */
       this.lines.setScales(xScale, yScale);
       this.rectangles.setScales(xScale, yScale);
 

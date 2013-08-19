@@ -5,8 +5,8 @@ Represents five metrics : position (x,y), width, height and color.
 
 @class Rectangle
 @constructor
-@requires d3,
-          d3.chart
+@requires d3.chart,
+          base
 
 @author "Marcio Caraballo <marcio.caraballososa@gmail.com>"
 */

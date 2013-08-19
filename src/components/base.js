@@ -2,6 +2,7 @@
 Defines common functionality for the chart parts.
 
 @class Base
+@requires d3.chart
 
 @author "Marcio Caraballo marcio.caraballososa@gmail.com"
 */

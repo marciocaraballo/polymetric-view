@@ -1,7 +1,9 @@
 /**
 Main application example
 
-Proyect will draw a Polymetric View
+Proyect will draw a Polymetric View.
+
+Data draw and update examples provided.
 
 @author "Marcio Caraballo <marcio.caraballososa@gmail.com>"
 */
@@ -84,5 +86,31 @@ function (d3, _){
 								.height(height)
 								.width(width);
 
+	/** First drawing with original data */
 			chart.draw(data);
+
+	/** 
+	Update example, using the already defined chart 
+	After 6 seconds, update data will be triggered
+	*/
+	setTimeout(function(){
+		/** Less nodes and links in data update */
+		var data2 = {
+			nodes : [
+				{id : 0, x : 350, y :  50, height :  10, width :  20, color : 'gray'},
+				{id : 1, x : 100, y : 150, height :  20, width :  50, color : 'lightgray'},
+				{id : 2, x : 500, y : 150, height :  70, width :  20, color : 'lightgray'},
+				{id : 3, x : 400, y : 300, height :  30, width :  80, color : 'gray'},
+				{id : 4, x : 550, y : 300, height : 100, width :  50, color : 'gray'}
+			],
+			links : [
+				{source : 0, target :  1},
+				{source : 0, target :  2},
+				{source : 2, target :  3},
+				{source : 2, target :  4}
+			]
+		};
+
+		chart.draw(data2);
+	}, 6000);
 });
