@@ -35,6 +35,10 @@ Project will take some metrics as data, but will be more focused on the drawing 
 
 ## What's done so far
 
+# 19/08/2013 - v0.1.2
+
++ Added non AMD examples
+
 # 19/08/2013 - v0.1.1
 
 + Update example added

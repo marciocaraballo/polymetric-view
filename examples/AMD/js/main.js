@@ -8,7 +8,7 @@ Data draw and update examples provided.
 @author "Marcio Caraballo <marcio.caraballososa@gmail.com>"
 */
 require.config({
-	baseUrl : '../',
+	baseUrl : '../../',
 	paths : {
 
 		/** Libraries */
